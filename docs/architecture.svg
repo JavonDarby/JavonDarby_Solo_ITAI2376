@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" rx="8" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">AI-Powered Trading Assistant -- System Architecture</text>
+
+  <!-- INPUT box -->
+  <rect x="30" y="200" width="150" height="80" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="105" y="232" text-anchor="middle" font-weight="bold" fill="#1e3a5f">INPUT</text>
+  <text x="105" y="252" text-anchor="middle" fill="#334155">User Question</text>
+  <text x="105" y="268" text-anchor="middle" font-size="11" fill="#64748b">(e.g. "Should I buy</text>
+  <text x="105" y="280" text-anchor="middle" font-size="11" fill="#64748b">AAPL right now?")</text>
+
+  <!-- Arrow: Input -> Agent Brain -->
+  <line x1="180" y1="240" x2="270" y2="240" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="225" y="230" text-anchor="middle" font-size="10" fill="#64748b">sends question</text>
+
+  <!-- AGENT BRAIN box (LangChain + LLM) -->
+  <rect x="275" y="170" width="200" height="140" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="375" y="198" text-anchor="middle" font-weight="bold" fill="#78350f">AGENT BRAIN</text>
+  <text x="375" y="218" text-anchor="middle" fill="#334155">LLM via OpenRouter</text>
+  <text x="375" y="236" text-anchor="middle" font-size="11" fill="#64748b">(GPT-4o Mini)</text>
+  <line x1="295" y1="250" x2="455" y2="250" stroke="#f59e0b" stroke-width="0.5"/>
+  <text x="375" y="270" text-anchor="middle" font-size="11" fill="#334155">Orchestrated by</text>
+  <text x="375" y="286" text-anchor="middle" font-size="11" fill="#334155">LangChain Framework</text>
+  <text x="375" y="302" text-anchor="middle" font-size="10" fill="#64748b">(ReAct reasoning loop)</text>
+
+  <!-- Arrow: Agent Brain -> Stock Price Tool -->
+  <line x1="340" y1="310" x2="260" y2="400" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="275" y="355" text-anchor="middle" font-size="10" fill="#64748b">calls price tool</text>
+
+  <!-- Arrow: Agent Brain -> Sentiment Tool -->
+  <line x1="410" y1="310" x2="500" y2="400" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="480" y="355" text-anchor="middle" font-size="10" fill="#64748b">calls sentiment tool</text>
+
+  <!-- TOOL 1: Stock Price -->
+  <rect x="140" y="400" width="180" height="90" rx="6" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="230" y="428" text-anchor="middle" font-weight="bold" fill="#14532d">TOOL 1</text>
+  <text x="230" y="448" text-anchor="middle" fill="#334155">Stock Price Data</text>
+  <text x="230" y="466" text-anchor="middle" font-size="11" fill="#64748b">Stooq via</text>
+  <text x="230" y="480" text-anchor="middle" font-size="11" fill="#64748b">pandas-datareader</text>
+
+  <!-- TOOL 2: FinBERT Sentiment -->
+  <rect x="430" y="400" width="180" height="90" rx="6" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="520" y="420" text-anchor="middle" font-weight="bold" fill="#581c87">DEEP LEARNING</text>
+  <text x="520" y="438" text-anchor="middle" font-weight="bold" fill="#581c87">MODEL</text>
+  <text x="520" y="458" text-anchor="middle" fill="#334155">FinBERT Sentiment</text>
+  <text x="520" y="476" text-anchor="middle" font-size="11" fill="#64748b">ProsusAI/finbert</text>
+  <text x="520" y="490" text-anchor="middle" font-size="11" fill="#64748b">(HuggingFace)</text>
+
+  <!-- Arrow: Stock Tool -> Agent Brain (return) -->
+  <line x1="280" y1="400" x2="345" y2="315" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="290" y="370" text-anchor="start" font-size="10" fill="#22c55e">returns price data</text>
+
+  <!-- Arrow: Sentiment Tool -> Agent Brain (return) -->
+  <line x1="480" y1="400" x2="410" y2="315" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="420" y="370" text-anchor="start" font-size="10" fill="#a855f7">returns sentiment</text>
+
+  <!-- Arrow: Agent Brain -> Output -->
+  <line x1="475" y1="240" x2="635" y2="240" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="555" y="230" text-anchor="middle" font-size="10" fill="#64748b">generates analysis</text>
+
+  <!-- OUTPUT box -->
+  <rect x="640" y="180" width="220" height="120" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="750" y="208" text-anchor="middle" font-weight="bold" fill="#7f1d1d">OUTPUT</text>
+  <text x="750" y="228" text-anchor="middle" fill="#334155">Structured Analysis</text>
+  <line x1="660" y1="238" x2="840" y2="238" stroke="#ef4444" stroke-width="0.5"/>
+  <text x="750" y="256" text-anchor="middle" font-size="11" fill="#64748b">Ticker, Sentiment, Price</text>
+  <text x="750" y="272" text-anchor="middle" font-size="11" fill="#64748b">Risk Level, Suggestion</text>
+  <text x="750" y="288" text-anchor="middle" font-size="11" fill="#64748b">Plain-Language Explanation</text>
+
+  <!-- Legend -->
+  <rect x="640" y="420" width="220" height="80" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="750" y="440" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">Legend</text>
+  <rect x="655" y="450" width="12" height="12" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="675" y="461" font-size="10" fill="#334155">LLM Reasoning (Agent Brain)</text>
+  <rect x="655" y="468" width="12" height="12" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="675" y="479" font-size="10" fill="#334155">Deep Learning Model (FinBERT)</text>
+  <rect x="655" y="486" width="12" height="12" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="675" y="497" font-size="10" fill="#334155">External Data Tool (Stooq)</text>
+</svg>
